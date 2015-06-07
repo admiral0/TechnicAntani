@@ -1,6 +1,7 @@
 .gradle
 build/
 .idea
+annotations/
 
 # Ignore Gradle GUI config
 gradle-app.setting

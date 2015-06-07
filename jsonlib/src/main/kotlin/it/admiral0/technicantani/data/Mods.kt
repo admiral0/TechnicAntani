@@ -43,8 +43,8 @@ public data class ModRepo private constructor(val repoPath : String) {
 }
 
 public data class ModVersion() {
-    var file : String by Delegates.notNull()
-    var minecraft : Array<MinecraftVersion> by Delegates.notNull()
+    var file : String = ""
+    var minecraft : Array<MinecraftVersion> = arrayOf(MinecraftVersion.v1_8)
     var type : ModType = ModType.UNIVERSAL
 }
 
@@ -53,9 +53,9 @@ public data class Mod() {
         val json = "mod.json"
     }
     var name : String by Delegates.notNull()
-    var authors : Array<String> by Delegates.notNull()
+    var authors : Array<String> = emptyArray()
     var description : String = "No description."
     var url : String = ""
     var type : PackagingType = PackagingType.MOD
-    var versions : Array<ModVersion> by Delegates.notNull()
+    var versions : Map<String, ModVersion> = emptyMap()
 }
