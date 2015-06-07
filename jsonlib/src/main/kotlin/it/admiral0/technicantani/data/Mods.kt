@@ -28,7 +28,12 @@ enum class PackagingType {
 public data class ModRepo private constructor(val repoPath : String) {
     companion object {
         val json = "meta.json"
+
+        public fun build(repoPath : String) : ModRepo {
+            return ModRepo(repoPath)
+        }
     }
+
     var authors : Array<String> by Delegates.notNull()
         private  set
     val mods : List<Mod> by Delegates.lazy {

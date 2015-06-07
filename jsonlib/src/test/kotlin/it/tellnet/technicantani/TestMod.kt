@@ -73,4 +73,11 @@ public class TestMod{
         junit.assertArrayEquals(arrayOf(MinecraftVersion.v1_8),version.minecraft)
         junit.assertEquals(version.type, ModType.UNIVERSAL)
     }
+
+    @Test
+    public fun setModName() {
+        val mod = Mod()
+        mod.name = "Antani"
+        junit.assertEquals(mod.name, "Antani")
+    }
 }
