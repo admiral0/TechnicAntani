@@ -40,4 +40,37 @@ public class TestMod{
         junit.assertArrayEquals(version.minecraft, arrayOf(MinecraftVersion.v1_7_10))
         junit.assertEquals(version.type, ModType.CLIENT)
     }
+
+    @Test
+    public fun verifyModSerializeDefaults() {
+        val valid = """
+        {
+
+        }
+        """
+        var mod : Mod = gson.builder.create().fromJson(valid, typeToken<Mod>())
+        junit.assertEquals(mod.type, PackagingType.MOD)
+        junit.assertEquals(mod.url, "")
+        junit.assertEquals(mod.description, "No description.")
+        junit.assertArrayEquals(mod.authors, emptyArray())
+        junit.assertEquals(0, mod.versions.size())
+        val valid2 = """
+        {
+            "versions" : {
+                "1.0" : {
+                }
+            }
+        }
+        """
+        mod : Mod = gson.builder.create().fromJson(valid2, typeToken<Mod>())
+        junit.assertEquals(mod.type, PackagingType.MOD)
+        junit.assertEquals(mod.url, "")
+        junit.assertEquals(mod.description, "No description.")
+        junit.assertArrayEquals(mod.authors, emptyArray())
+        junit.assertEquals(1, mod.versions.size())
+        val version = mod.versions.values().first()
+        junit.assertEquals("", version.file)
+        junit.assertArrayEquals(arrayOf(MinecraftVersion.v1_8),version.minecraft)
+        junit.assertEquals(version.type, ModType.UNIVERSAL)
+    }
 }
