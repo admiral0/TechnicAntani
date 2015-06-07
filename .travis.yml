@@ -1,13 +1,4 @@
-language: python
+language: java
 
-python:
-  - 3.3
-
-install:
-  - "pip install -r requirements.txt"
-
-before_script:
-  - "ln -sv settings.py.development TechnicAntani/settings.py"
-  - "ln -sv antanisettings.py.development  TechnicAntani/antanisettings.py"
-
-script: "python manage.py test"
+after_success:
+  - ./gradlew bintrayUpload

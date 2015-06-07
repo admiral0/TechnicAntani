@@ -1,9 +1,9 @@
-db.sqlite3
-debug_toolbar
-var
-py/
+.gradle
+build/
 .idea
-*.pyc
-*.pyo
-TechnicAntani/settings.py
-TechnicAntani/antanisettings.py
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
