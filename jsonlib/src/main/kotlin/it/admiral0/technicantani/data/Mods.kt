@@ -2,6 +2,7 @@ package it.admiral0.technicantani.data
 
 import com.github.salomonbrys.kotson.typeToken
 import it.admiral0.technicantani.MissingProperty
+import it.admiral0.technicantani.defaultMinecraftVersion
 import java.io.File
 import java.util.*
 import it.admiral0.technicantani.gson
@@ -60,7 +61,7 @@ public data class ModRepo private constructor(val repoPath : String) {
 
 public data class ModVersion() {
     var file : String = ""
-    var minecraft : Array<MinecraftVersion> = arrayOf(MinecraftVersion.v1_8)
+    var minecraft : Array<MinecraftVersion> = arrayOf(defaultMinecraftVersion)
     var type : ModType = ModType.UNIVERSAL
 }
 

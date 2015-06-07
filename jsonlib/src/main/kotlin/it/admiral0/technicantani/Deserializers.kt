@@ -9,6 +9,8 @@ import kotlin.javaClass
 import java.io.File
 import java.lang.reflect.Type
 
+val defaultMinecraftVersion = MinecraftVersion.v1_8
+
 object gson {
     val builder =GsonBuilder()
     init {
