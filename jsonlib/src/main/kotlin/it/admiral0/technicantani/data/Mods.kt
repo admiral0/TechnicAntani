@@ -1,5 +1,6 @@
 package it.admiral0.technicantani.data
 
+import com.github.salomonbrys.kotson.typeToken
 import it.admiral0.technicantani.MissingProperty
 import java.io.File
 import java.util.*
@@ -26,6 +27,9 @@ enum class PackagingType {
 }
 
 public data class ModRepo private constructor(val repoPath : String) {
+    private inner class ModRepoData {
+        var authors : Array<String> = emptyArray()
+    }
     companion object {
         val json = "meta.json"
 
@@ -34,13 +38,20 @@ public data class ModRepo private constructor(val repoPath : String) {
         }
     }
 
-    var authors : Array<String> by Delegates.notNull()
-        private  set
+    val authors : Array<String> by Delegates.lazy {
+        val map : ModRepoData =  gson.builder.create().fromJson(
+                File(repoPath + File.separator + ModRepo.json).readText(Charsets.UTF_8),
+                typeToken<ModRepoData>())
+        return@lazy map.authors
+    }
+
     val mods : List<Mod> by Delegates.lazy {
         var root = File(repoPath)
         var mods = ArrayList<Mod>()
         root.listFiles().filter { it.isDirectory() && it.list().contains(Mod.json) }.forEach {
-            val mod : Mod = gson.builder.create().fromJson(it.readText(Charsets.UTF_8), javaClass<Mod>() )
+            val mod : Mod = gson.builder.create()
+                    .fromJson(File(it.getAbsolutePath() + File.separator + Mod.json)
+                            .readText(Charsets.UTF_8), javaClass<Mod>() )
             mods.add(mod)
         }
         return@lazy mods
