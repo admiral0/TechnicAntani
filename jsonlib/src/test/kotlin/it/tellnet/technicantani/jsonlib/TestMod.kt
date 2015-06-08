@@ -6,14 +6,13 @@ import it.admiral0.technicantani.data.Mod
 import it.admiral0.technicantani.data.ModType
 import it.admiral0.technicantani.data.PackagingType
 import it.admiral0.technicantani.gson
-import org.junit.Test
+import org.junit.Test as test
 import org.junit.Assert as junit
 import kotlin.test.assertEquals
 
 
 public class TestMod{
-    @Test
-    public fun verifyModSerialize() {
+    test fun verifyModSerialize() {
         val valid = """
         {
             "authors" : ["author1", "author2"],
@@ -41,8 +40,8 @@ public class TestMod{
         junit.assertEquals(version.type, ModType.CLIENT)
     }
 
-    @Test
-    public fun verifyModSerializeDefaults() {
+
+    test fun verifyModSerializeDefaults() {
         val valid = """
         {
 
@@ -74,8 +73,7 @@ public class TestMod{
         junit.assertEquals(version.type, ModType.UNIVERSAL)
     }
 
-    @Test
-    public fun setModName() {
+    test fun setModName() {
         val mod = Mod()
         mod.name = "Antani"
         junit.assertEquals(mod.name, "Antani")

@@ -2,15 +2,14 @@ package it.tellnet.technicantani
 
 import it.admiral0.technicantani.data.Mod
 import it.admiral0.technicantani.data.ModRepo
-import org.junit.Test
+import org.junit.Test as test
 import org.junit.Assert as junit
 import java.io.File
 import kotlin.io.createTempDir
 import kotlin.test.assertEquals
 
 class TestModRepo {
-    @Test
-    public fun testModRepo(){
+    test fun testModRepo(){
         val dir = createTempDir()
         val meta = File(dir.getAbsolutePath() + File.separator + ModRepo.json)
         meta.createNewFile()

@@ -3,15 +3,14 @@ import com.github.salomonbrys.kotson.typeToken
 import it.admiral0.technicantani.data.MinecraftVersion
 import it.admiral0.technicantani.data.ModPackVersion
 import it.admiral0.technicantani.gson
-import org.junit.Test
+import org.junit.Test as test
 import org.junit.Assert as junit
 
 /**
  * Created by admiral0 on 07/06/15.
  */
 public class TestPackVersion {
-    @Test
-    public fun testBasicPack(){
+    test fun testBasicPack(){
         val pack : ModPackVersion = gson.builder.create().fromJson("""
             {
                 "description": "Back To Antani Modpack",
