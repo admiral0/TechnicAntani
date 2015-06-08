@@ -53,6 +53,7 @@ public data class ModRepo private constructor(val repoPath : String) {
             val mod : Mod = gson.builder.create()
                     .fromJson(File(it.getAbsolutePath() + File.separator + Mod.json)
                             .readText(Charsets.UTF_8), javaClass<Mod>() )
+            mod.name = it.getName()
             mods.add(mod)
         }
         return@lazy mods
