@@ -1,6 +1,7 @@
 package it.tellnet.technicantani
 
 import com.github.salomonbrys.kotson.typeToken
+import com.google.gson.JsonSyntaxException
 import it.admiral0.technicantani.data.MinecraftVersion
 import it.admiral0.technicantani.data.Mod
 import it.admiral0.technicantani.data.ModType
@@ -77,5 +78,17 @@ public class TestMod{
         val mod = Mod()
         mod.name = "Antani"
         junit.assertEquals(mod.name, "Antani")
+    }
+
+    test fun verifyFailSerialize(){
+        val syntaxError = """
+        {
+        """
+        try {
+            val mod : Mod = gson.builder.create().fromJson(syntaxError, typeToken<Mod>())
+        } catch(e : JsonSyntaxException){
+            return;
+        }
+        junit.fail("JSONSyntaxException not thrown!")
     }
 }
