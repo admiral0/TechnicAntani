@@ -7,6 +7,7 @@ import it.admiral0.technicantani.data.Mod
 import it.admiral0.technicantani.data.ModType
 import it.admiral0.technicantani.data.PackagingType
 import it.admiral0.technicantani.data.gson
+import it.tellnet.technicantani.jsonlib.util.validModInfo
 import org.junit.Test as test
 import org.junit.Assert as junit
 import kotlin.test.assertEquals
@@ -14,22 +15,7 @@ import kotlin.test.assertEquals
 
 class TestMod{
     test fun verifyModSerialize() {
-        val valid = """
-        {
-            "authors" : ["author1", "author2"],
-            "description" : "Some description",
-            "url" : "asdomare",
-            "type" : "prepackaged",
-            "versions": {
-                "1.0" : {
-                    "file" : "test",
-                    "minecraft": ["1.7.10"],
-                    "type": "client"
-                }
-            }
-        }
-        """
-        val mod : Mod = gson.builder.create().fromJson(valid, typeToken<Mod>())
+        val mod : Mod = gson.builder.create().fromJson(validModInfo, typeToken<Mod>())
         junit.assertEquals(mod.type, PackagingType.PREPACKAGED)
         junit.assertEquals(mod.url, "asdomare")
         junit.assertEquals(mod.description, "Some description")

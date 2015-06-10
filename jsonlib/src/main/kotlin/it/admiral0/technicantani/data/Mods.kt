@@ -46,15 +46,15 @@ public data class ModRepo private constructor(val repoPath : String) {
         return@lazy map.authors
     }
 
-    val mods : List<Mod> by Delegates.lazy {
+    val mods : Map<String,Mod> by Delegates.lazy {
         var root = File(repoPath)
-        var mods = ArrayList<Mod>()
+        var mods = HashMap<String,Mod>()
         root.listFiles().filter { it.isDirectory() && it.list().contains(Mod.json) }.forEach {
             val mod : Mod = gson.builder.create()
                     .fromJson(File(it.getAbsolutePath() + File.separator + Mod.json)
                             .readText(Charsets.UTF_8), javaClass<Mod>() )
             mod.name = it.getName()
-            mods.add(mod)
+            mods.put(mod.name,mod)
         }
         return@lazy mods
     }

@@ -5,7 +5,7 @@ import java.util.*
 import kotlin.properties.Delegates
 
 public data class ModPackVersion() {
-    var name : String by Delegates.notNull()
+    var name : Optional<String> = Optional.empty()
     var description : String = "No description"
     var forgever : Optional<String> = Optional.empty()
     var mcversion : MinecraftVersion = defaultMinecraftVersion
