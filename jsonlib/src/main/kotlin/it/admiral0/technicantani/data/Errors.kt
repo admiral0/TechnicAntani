@@ -1,4 +1,4 @@
-package it.admiral0.technicantani
+package it.admiral0.technicantani.data
 
 import java.lang.reflect.Type
 

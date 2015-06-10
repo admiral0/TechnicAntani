@@ -1,4 +1,4 @@
-package it.admiral0.technicantani.manipulation
+package it.admiral0.technicantani.data
 
 import it.admiral0.technicantani.data.Mod
 import java.io.File
@@ -20,3 +20,6 @@ fun Mod.validate(path : File) : List<String> {
     return errs
 }
 
+fun ModPackVersion.validate(repo : ModRepo){
+
+}
