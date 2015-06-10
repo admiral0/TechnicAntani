@@ -2,6 +2,7 @@ package it.tellnet.technicantani
 
 import it.admiral0.technicantani.data.Mod
 import it.admiral0.technicantani.data.ModRepo
+import it.admiral0.technicantani.manipulation.validate
 import org.junit.Test as test
 import org.junit.Assert as junit
 import java.io.File
@@ -28,6 +29,11 @@ class TestModRepo {
         {}
         """, Charsets.UTF_8)
         assertEquals(repo.mods.size(),1)
+        val m : Mod = repo.mods.first()
+        assertEquals(m.name, "testmod")
+        val errs = m.validate(File(dir.getAbsolutePath() + File.separator + "testmod"))
+        junit.assertTrue(errs.contains("Zero authors."))
+        junit.assertTrue(errs.contains("No declared versions"))
     }
 
 }

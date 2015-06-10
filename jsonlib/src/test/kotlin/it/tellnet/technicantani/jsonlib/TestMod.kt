@@ -86,6 +86,7 @@ public class TestMod{
         """
         try {
             val mod : Mod = gson.builder.create().fromJson(syntaxError, typeToken<Mod>())
+            junit.assertNull(mod) // Compiler, Shut up!
         } catch(e : JsonSyntaxException){
             return;
         }
