@@ -50,6 +50,9 @@ public class ModPack(val path : String) {
             )
         }
         versions = vers
+        if(recommended.orElse("") !in vers.keySet())
+            throw MissingTagForVersion(recommended.orElse("VersionNotSpecified"), "stable")
+        if(latest.orElse("") !in vers.keySet())
+            throw MissingTagForVersion(latest.orElse("VersionNotSpecified"), "master")
     }
-    
 }

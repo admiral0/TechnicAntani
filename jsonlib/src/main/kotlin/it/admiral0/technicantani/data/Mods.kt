@@ -1,7 +1,6 @@
 package it.admiral0.technicantani.data
 
 import com.github.salomonbrys.kotson.typeToken
-import it.admiral0.technicantani.data.MissingProperty
 import it.admiral0.technicantani.data.defaultMinecraftVersion
 import java.io.File
 import java.util.*

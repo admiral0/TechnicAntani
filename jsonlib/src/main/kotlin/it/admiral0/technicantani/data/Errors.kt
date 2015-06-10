@@ -3,11 +3,6 @@ package it.admiral0.technicantani.data
 import org.eclipse.jgit.api.Git
 import java.lang.reflect.Type
 
-public class MissingProperty(
-        val name: String,
-        val where: String
-) : Exception("$name property not found in \"$where\"")
-
 public class WrongType(
         val type: String,
         val expected: String,
@@ -22,4 +17,8 @@ public class NotAValidOption(
 
 public class MissingBranch(val branch : String, val repo : Git) : Exception(
         "There is no branch \"${branch}\" in the repo ${repo.getRepository().toString()}"
+)
+
+public class MissingTagForVersion(val version : String, val branch : String) : Exception(
+        "Version $version is not tagged but in branch $branch"
 )

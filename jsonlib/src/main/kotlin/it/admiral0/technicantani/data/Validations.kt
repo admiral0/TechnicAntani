@@ -37,7 +37,3 @@ fun ModPackVersion.validate(repo : ModRepo) : List<String>{
     }
     return  errs.toList()
 }
-
-fun ModPack.validate() {
-    val errs : MutableList<String> = ArrayList()
-}
