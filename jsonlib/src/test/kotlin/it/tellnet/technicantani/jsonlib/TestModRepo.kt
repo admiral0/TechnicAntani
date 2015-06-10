@@ -1,4 +1,4 @@
-package it.tellnet.technicantani
+package it.tellnet.technicantani.jsonlib
 
 import it.admiral0.technicantani.data.Mod
 import it.admiral0.technicantani.data.ModRepo

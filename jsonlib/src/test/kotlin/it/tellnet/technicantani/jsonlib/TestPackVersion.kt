@@ -6,7 +6,7 @@ import it.admiral0.technicantani.data.gson
 import org.junit.Test as test
 import org.junit.Assert as junit
 
-public class TestPackVersion {
+class TestPackVersion {
     test fun testBasicPack(){
         val pack : ModPackVersion = gson.builder.create().fromJson("""
             {

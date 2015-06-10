@@ -1,4 +1,4 @@
-package it.tellnet.technicantani
+package it.tellnet.technicantani.jsonlib
 
 import com.github.salomonbrys.kotson.typeToken
 import com.google.gson.JsonSyntaxException
@@ -12,7 +12,7 @@ import org.junit.Assert as junit
 import kotlin.test.assertEquals
 
 
-public class TestMod{
+class TestMod{
     test fun verifyModSerialize() {
         val valid = """
         {
