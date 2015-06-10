@@ -54,7 +54,7 @@ public data class ModRepo private constructor(val repoPath : String) {
                     .fromJson(File(it.getAbsolutePath() + File.separator + Mod.json)
                             .readText(Charsets.UTF_8), javaClass<Mod>() )
             mod.name = it.getName()
-            mods.put(it.getName(),mod)
+            mods.put(mod.name,mod)
         }
         return@lazy mods
     }

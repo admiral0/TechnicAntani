@@ -13,7 +13,8 @@ public class ModPackVersion() {
     companion object {
         val json = "modpack.json"
     }
-    var name : String by Delegates.notNull()
+
+    var name : Optional<String> = Optional.empty()
     var description : String = "No description"
     var forgever : Optional<String> = Optional.empty()
     var mcversion : MinecraftVersion = defaultMinecraftVersion

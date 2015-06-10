@@ -18,14 +18,24 @@ fun Mod.validate(pathToMod : File) : List<String> {
             errs.add(error)
         }
     }
-    return errs
+    return errs.toList()
 }
 
-fun ModPackVersion.validate(repo : ModRepo){
+fun ModPackVersion.validate(repo : ModRepo) : List<String>{
     val errs : MutableList<String> = ArrayList()
-    if(name.isBlank())
+    if(!name.isPresent() || name.get().isBlank())
         errs.add("Pack Name cannot be blank")
-    errs
+    for((name, version) in mods){
+        if(name !in repo.mods.keySet()) {
+            errs.add("Mod $name not found in Mod Repo at '${repo.repoPath}'")
+            continue
+        }
+        val mod : Mod = repo.mods[name]!!
+
+        if(version !in mod.versions.keySet())
+            errs.add("Mod $name doesn't have version '$version' in Mod Repo at '${repo.repoPath}'")
+    }
+    return  errs.toList()
 }
 
 fun ModPack.validate() {
