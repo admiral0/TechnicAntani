@@ -1,6 +1,6 @@
 package it.admiral0.technicantani.data
 
-import it.admiral0.technicantani.defaultMinecraftVersion
+import it.admiral0.technicantani.data.defaultMinecraftVersion
 import java.util.*
 import kotlin.properties.Delegates
 
@@ -10,6 +10,6 @@ public data class ModPackVersion() {
     var forgever : Optional<String> = Optional.empty()
     var mcversion : MinecraftVersion = defaultMinecraftVersion
     var url : Optional<String> = Optional.empty()
-    var version : String = "unknown"
+    var version : Optional<String> = Optional.empty()
     var mods : Map<String, String> = emptyMap()
 }

@@ -2,13 +2,10 @@ package it.tellnet.technicantani.jsonlib
 import com.github.salomonbrys.kotson.typeToken
 import it.admiral0.technicantani.data.MinecraftVersion
 import it.admiral0.technicantani.data.ModPackVersion
-import it.admiral0.technicantani.gson
+import it.admiral0.technicantani.data.gson
 import org.junit.Test as test
 import org.junit.Assert as junit
 
-/**
- * Created by admiral0 on 07/06/15.
- */
 public class TestPackVersion {
     test fun testBasicPack(){
         val pack : ModPackVersion = gson.builder.create().fromJson("""
@@ -91,9 +88,9 @@ public class TestPackVersion {
             }
         """, typeToken<ModPackVersion>())
         junit.assertEquals(pack.description, "Back To Antani Modpack")
-        junit.assertEquals(pack.forgever, "10.13.3.1428")
+        junit.assertEquals(pack.forgever.get(), "10.13.3.1428")
         junit.assertEquals(pack.mcversion, MinecraftVersion.v1_7_10)
-        junit.assertEquals(pack.version, "0.3.0")
+        junit.assertEquals(pack.version.get(), "0.3.0")
         junit.assertTrue(pack.mods.containsKey("Wawla"))
         junit.assertEquals(pack.mods.get("Wawla"), "1.2.1")
     }

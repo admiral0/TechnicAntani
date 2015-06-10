@@ -8,6 +8,7 @@ import it.admiral0.technicantani.data.*
 import kotlin.javaClass
 import java.io.File
 import java.lang.reflect.Type
+import java.util.*
 
 val defaultMinecraftVersion = MinecraftVersion.v1_8
 
@@ -48,6 +49,13 @@ object gson {
                         ModType.values().map<ModType, String> { it.toString().toLowerCase() }.toTypedArray()
                 )
             }
+        }
+        builder.deserialize<Optional<String>> { jsonElement, type, jsonDeserializationContext ->
+            var ret : Optional<String> = Optional.empty()
+            if(jsonElement !is JsonPrimitive || !jsonElement.isString())
+                return@deserialize ret
+            ret = Optional.of(jsonElement.string)
+            return@deserialize ret
         }
     }
 }

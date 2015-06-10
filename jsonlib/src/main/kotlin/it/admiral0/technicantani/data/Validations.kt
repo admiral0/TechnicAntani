@@ -22,5 +22,8 @@ fun Mod.validate(pathToMod : File) : List<String> {
 }
 
 fun ModPackVersion.validate(repo : ModRepo){
-
+    val errs : MutableList<String> = ArrayList()
+    if(name.isBlank())
+        errs.add("Pack Name cannot be blank")
+    errs
 }

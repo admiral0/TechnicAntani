@@ -2,7 +2,7 @@ package it.tellnet.technicantani
 
 import it.admiral0.technicantani.data.Mod
 import it.admiral0.technicantani.data.ModRepo
-import it.admiral0.technicantani.manipulation.validate
+import it.admiral0.technicantani.data.validate
 import org.junit.Test as test
 import org.junit.Assert as junit
 import java.io.File

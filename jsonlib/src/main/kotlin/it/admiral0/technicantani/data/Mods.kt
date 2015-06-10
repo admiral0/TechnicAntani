@@ -2,10 +2,10 @@ package it.admiral0.technicantani.data
 
 import com.github.salomonbrys.kotson.typeToken
 import it.admiral0.technicantani.data.MissingProperty
-import it.admiral0.technicantani.defaultMinecraftVersion
+import it.admiral0.technicantani.data.defaultMinecraftVersion
 import java.io.File
 import java.util.*
-import it.admiral0.technicantani.gson
+import it.admiral0.technicantani.data.gson
 import kotlin.properties.Delegates
 
 /**

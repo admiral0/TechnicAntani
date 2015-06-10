@@ -6,7 +6,7 @@ import it.admiral0.technicantani.data.MinecraftVersion
 import it.admiral0.technicantani.data.Mod
 import it.admiral0.technicantani.data.ModType
 import it.admiral0.technicantani.data.PackagingType
-import it.admiral0.technicantani.gson
+import it.admiral0.technicantani.data.gson
 import org.junit.Test as test
 import org.junit.Assert as junit
 import kotlin.test.assertEquals
