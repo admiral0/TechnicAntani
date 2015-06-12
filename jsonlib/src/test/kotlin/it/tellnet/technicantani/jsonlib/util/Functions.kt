@@ -1,7 +1,9 @@
 package it.tellnet.technicantani.jsonlib.util
 
 import it.admiral0.technicantani.data.Mod
+import it.admiral0.technicantani.data.ModPackVersion
 import it.admiral0.technicantani.data.ModRepo
+import org.eclipse.jgit.api.Git
 import java.io.File
 
 fun createTempRepo(vararg mods : Pair<String,String>) : File {

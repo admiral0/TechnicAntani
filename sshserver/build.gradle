@@ -1,0 +1,11 @@
+dependencies {
+    compile project(':jsonlib')
+    compile "io.vertx:vertx-core:$vertx_version"
+    compile "io.vertx:vertx-auth-common:$vertx_version"
+    compile 'org.apache.sshd:sshd-git:0.14.0'
+}
+
+bintray.pkg {
+    name = 'repository'
+    description = 'SSH Hosting server'
+}

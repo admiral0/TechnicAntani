@@ -1,1 +1,1 @@
-include 'jsonlib'
+include 'jsonlib', 'sshserver'

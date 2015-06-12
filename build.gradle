@@ -1,5 +1,6 @@
 buildscript {
     ext.kotlin_version = '0.12.213'
+    ext.vertx_version = '3.0.0-milestone6'
     repositories {
         jcenter()
     }
